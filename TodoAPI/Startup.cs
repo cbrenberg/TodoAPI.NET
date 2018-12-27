@@ -21,7 +21,7 @@ namespace TodoAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TodoContext>(options =>
-                options.UseInMemoryDatabase("TodoList"));
+                options.UseSqlite(Configuration.GetConnectionString("TodoContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
